@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Calculadora-Cabos",
+    "slug": "Calculadora-Cabos",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
