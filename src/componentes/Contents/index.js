@@ -14,7 +14,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 export default function Contents({bitola,disjutor}) { 
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(0.0172);
+    const [valueMaterial, setValue] = useState(0.0172);
     const [items, setItems] = useState([
         {label: 'Cobre', value: 0.0172},
         {label: 'Aluminio', value: 0.0282}
@@ -30,6 +30,11 @@ export default function Contents({bitola,disjutor}) {
         {label: '5%', value: 0.05},
       ]);
 
+    const [Potencia,setPotencia]=useState('')
+    const [Comprimento,setComprimento]=useState('')
+    const [Tensao,setTensao]=useState('')
+
+    let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
 
     
 
@@ -43,7 +48,7 @@ export default function Contents({bitola,disjutor}) {
                         dropDownStyle={{fontWeight:'bold'}}
                         style={styles.dropDown}
                         open={open}
-                        value={value}
+                        value={valueMaterial}
                         items={items}
                         setOpen={setOpen}
                         setValue={setValue}
@@ -70,20 +75,32 @@ export default function Contents({bitola,disjutor}) {
         <View style={styles.container}>
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Potência em Watts (W)</Text>
-                <TextInput style={styles.inputsSingle} keyboardType={'number-pad'}/>
+                <TextInput 
+                    style={styles.inputsSingle} 
+                    keyboardType={'number-pad'}
+                    value={Potencia}
+                    onChangeText={text=>setPotencia(text)}/>
             </View>
         </View>
         <View style={styles.container}>
             <View style={styles.subcontainer}>
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Comprimento (m)</Text>
-                    <TextInput style={styles.inputs} keyboardType={'number-pad'}/>
+                    <TextInput 
+                        style={styles.inputs} 
+                        keyboardType={'number-pad'}
+                        value={Comprimento}
+                        onChangeText={text=>setComprimento(text)}/>
                 </View>       
             </View>
             <View style={styles.subcontainer}>
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Tensão (V)</Text>
-                    <TextInput style={styles.inputs} keyboardType={'number-pad'}/>
+                    <TextInput 
+                        style={styles.inputs} 
+                        keyboardType={'number-pad'}
+                        value={Tensao}
+                        onChangeText={text=>setTensao(text)}/>
                 </View>
             </View>
         </View>
@@ -91,7 +108,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Bitola Recomendada (mm²)</Text>
                 <View style={styles.outputSingle}>
-                    <Text style={styles.result}>{bitola}</Text>
+                    <Text style={styles.result}>{bitolaRec.toFixed(0)}</Text>
                 </View>
             </View>
         </View>
@@ -99,13 +116,15 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Disjuntor recomedado (A)</Text>
                 <View style={styles.outputSingle}>
-                    <Text style={styles.result}></Text>
+                    <Text style={styles.result}>Restando</Text>
                 </View>
             </View>
         </View>
     </View>
+    
 );
 }
+
 
 
 
