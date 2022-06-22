@@ -30,13 +30,16 @@ export default function Contents({bitola,disjutor}) {
         {label: '5%', value: 0.05},
       ]);
 
-    const [Potencia,setPotencia]=useState('')
-    const [Comprimento,setComprimento]=useState('')
-    const [Tensao,setTensao]=useState('')
-
-    let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
+    const [Potencia,setPotencia]=useState(null)
+    const [Comprimento,setComprimento]=useState(null)
+    const [Tensao,setTensao]=useState(null)
 
     
+
+    
+    let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
+ 
+
 
  return (
     <View style={styles.total}>
@@ -108,7 +111,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Bitola Recomendada (mm²)</Text>
                 <View style={styles.outputSingle}>
-                    <Text style={styles.result}>{bitolaRec.toFixed(0)}</Text>
+                    {Potencia!=null&&Comprimento!=null&&Tensao!=null ? <Text style={styles.result}>{bitolaRec.toFixed(0)}</Text>:<Text></Text>}
                 </View>
             </View>
         </View>
