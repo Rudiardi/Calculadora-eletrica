@@ -48,7 +48,8 @@ export default function Contents({bitola,disjutor}) {
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Material</Text>
                     <DropDownPicker 
-                        dropDownStyle={{fontWeight:'bold'}}
+                        textStyle={{fontSize: 20,color: '#FFEEDB', fontWeight:'bold'}}
+                        dropDownContainerStyle={{backgroundColor: "#A53860"}}
                         style={styles.dropDown}
                         open={open}
                         value={valueMaterial}
@@ -63,7 +64,8 @@ export default function Contents({bitola,disjutor}) {
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Queda de Tensão (%)</Text>
                     <DropDownPicker 
-                        dropDownStyle={{fontWeight:'bold'}}
+                        textStyle={{fontSize: 20,color: '#FFEEDB',fontWeight:'bold'}}
+                        dropDownContainerStyle={{backgroundColor: "#A53860"}}
                         style={styles.dropDown}
                         open={open2}
                         value={value2}
@@ -161,7 +163,8 @@ const styles = StyleSheet.create({
         color:'#FFEEDB',
         width:180,
         height:50,
-        paddingLeft:60
+        paddingLeft:60,
+        fontSize:14,
     },
     inputsSingle:{
         backgroundColor:'#4C3B4D',
@@ -171,7 +174,8 @@ const styles = StyleSheet.create({
         color:'#FFEEDB',
         width:300,
         height:50,
-        paddingLeft:60
+        paddingLeft:60,
+        fontSize:20
     },
     dropDown:{
         backgroundColor:'#4C3B4D',
