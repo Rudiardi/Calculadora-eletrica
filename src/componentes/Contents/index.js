@@ -34,7 +34,7 @@ export default function Contents({bitola,disjutor}) {
     const [Comprimento,setComprimento]=useState(null)
     const [Tensao,setTensao]=useState(null)
 
-    
+    let tamanhoInput = 6;
 
     
     let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
@@ -84,6 +84,8 @@ export default function Contents({bitola,disjutor}) {
                     style={styles.inputsSingle} 
                     keyboardType={'number-pad'}
                     value={Potencia}
+                    multiline={false}
+                    maxLength={tamanhoInput}
                     onChangeText={text=>setPotencia(text)}/>
             </View>
         </View>
@@ -95,6 +97,7 @@ export default function Contents({bitola,disjutor}) {
                         style={styles.inputs} 
                         keyboardType={'number-pad'}
                         value={Comprimento}
+                        maxLength={tamanhoInput}
                         onChangeText={text=>setComprimento(text)}/>
                 </View>       
             </View>
@@ -105,6 +108,7 @@ export default function Contents({bitola,disjutor}) {
                         style={styles.inputs} 
                         keyboardType={'number-pad'}
                         value={Tensao}
+                        maxLength={tamanhoInput}
                         onChangeText={text=>setTensao(text)}/>
                 </View>
             </View>
@@ -149,7 +153,7 @@ const styles = StyleSheet.create({
     titulos:{
         fontSize:18,
         fontWeight:'bold',
-        color:'#4C3B4D'
+        color:'#4C3B4D',
     },
     organizaTexto:{
         justifyContent:'space-around' ,
@@ -163,8 +167,9 @@ const styles = StyleSheet.create({
         color:'#FFEEDB',
         width:180,
         height:50,
-        paddingLeft:60,
-        fontSize:14,
+        paddingLeft:75,
+        fontSize:20,
+        fontWeight:'bold'
     },
     inputsSingle:{
         backgroundColor:'#4C3B4D',
@@ -174,8 +179,9 @@ const styles = StyleSheet.create({
         color:'#FFEEDB',
         width:300,
         height:50,
-        paddingLeft:60,
-        fontSize:20
+        fontSize:20,
+        paddingLeft:125,
+        fontWeight:'bold'
     },
     dropDown:{
         backgroundColor:'#4C3B4D',
