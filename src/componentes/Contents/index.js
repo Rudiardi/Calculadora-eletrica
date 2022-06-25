@@ -7,6 +7,7 @@ import {
  } from 'react-native';
 
 import DropDownPicker from 'react-native-dropdown-picker';
+import { Switch } from 'react-native-web';
 
 //import {Picker} from '@react-native-picker/picker';
 //react select
@@ -38,8 +39,7 @@ export default function Contents({bitola,disjutor}) {
 
     
     let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
- 
-
+    let bitExibida;
 
  return (
     <View style={styles.total}>
@@ -117,7 +117,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Bitola Recomendada (mm²)</Text>
                 <View style={styles.outputSingle}>
-                    {Potencia!=null&&Comprimento!=null&&Tensao!=null ? <Text style={styles.result}>{bitolaRec.toFixed(0)}</Text>:<Text></Text>}
+                    {Potencia!=null&&Comprimento!=null&&Tensao!=null ? <Text style={styles.result}>{bitolaRec.toFixed(1)}</Text>:<Text></Text>}
                 </View>
             </View>
         </View>
@@ -125,7 +125,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Disjuntor recomedado (A)</Text>
                 <View style={styles.outputSingle}>
-                    <Text style={styles.result}>Restando</Text>
+                    {bitolaRec>0&&bitolaRec<=1.5 ? <Text style={styles.result}>1.5</Text>:<Text style={styles.result}>Outro</Text>}   
                 </View>
             </View>
         </View>
