@@ -124,6 +124,7 @@ export default function Contents({bitola,disjutor}) {
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Material</Text>
                     <DropDownPicker 
+                        arrowColor='#FFEEDB'
                         textStyle={{fontSize: 20,color: '#FFEEDB', fontWeight:'bold'}}
                         dropDownContainerStyle={{backgroundColor: "#A53860"}}
                         style={styles.dropDown}
