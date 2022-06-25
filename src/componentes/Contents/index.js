@@ -39,7 +39,83 @@ export default function Contents({bitola,disjutor}) {
 
     
     let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
-    let bitExibida;
+    
+    let bitolaExi = null;
+    let disjutorExi = null;
+
+    if (bitolaRec<=1.5) {
+        bitolaExi=1.5
+        disjutorExi=16;
+    } else if (1.5<bitolaRec && bitolaRec<=2.5){
+        bitolaExi=2.5;
+        disjutorExi=25;
+    } 
+    else if (2.5<bitolaRec && bitolaRec<=4){
+        bitolaExi=4;
+        disjutorExi=32;
+    } 
+    else if (4<bitolaRec && bitolaRec<=6){
+        bitolaExi=6;
+        disjutorExi=40;
+    }
+    else if (6<bitolaRec && bitolaRec<=10){
+        bitolaExi=10;
+        disjutorExi=63;
+    }
+    else if (10<bitolaRec && bitolaRec<=16){
+        bitolaExi=16;
+    }
+    else if (16<bitolaRec && bitolaRec<=25){
+        bitolaExi=25;
+    }
+    else if (25<bitolaRec && bitolaRec<=35){
+        bitolaExi=35;
+    }
+    else if (35<bitolaRec && bitolaRec<=50){
+        bitolaExi=50;
+    }
+    else if (50<bitolaRec && bitolaRec<=70){
+        bitolaExi=70;
+    }
+    else if (70<bitolaRec && bitolaRec<=95){
+        bitolaExi=95;
+    }
+    else if (95<bitolaRec && bitolaRec<=120){
+        bitolaExi=120;
+    }
+    else if (120<bitolaRec && bitolaRec<=150){
+        bitolaExi=150;
+    }
+    else if (150<bitolaRec && bitolaRec<=185){
+        bitolaExi=185;
+    }
+    else if (185<bitolaRec && bitolaRec<=240){
+        bitolaExi=240;
+    }
+    else if (240<bitolaRec && bitolaRec<=300){
+        bitolaExi=300;
+    }
+    else if (300<bitolaRec && bitolaRec<=400){
+        bitolaExi=400;
+    }
+    else if (400<bitolaRec && bitolaRec<=500){
+        bitolaExi=500;
+    }
+    else if (500<bitolaRec && bitolaRec<=630){
+        bitolaExi=630;
+    }
+    else if (630<bitolaRec && bitolaRec<=800){
+        bitolaExi=800;
+    }
+    else if (800<bitolaRec && bitolaRec<=1000){
+        bitolaExi=1000;
+    }
+    else {
+        bitolaExi = null;
+    }
+
+
+
 
  return (
     <View style={styles.total}>
@@ -117,7 +193,8 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Bitola Recomendada (mm²)</Text>
                 <View style={styles.outputSingle}>
-                    {Potencia!=null&&Comprimento!=null&&Tensao!=null ? <Text style={styles.result}>{bitolaRec.toFixed(1)}</Text>:<Text></Text>}
+                    {bitolaExi==null?<Text></Text>:<Text style={styles.legenda}>EXATO:{bitolaRec.toFixed(1)}mm²</Text>}
+                    {bitolaExi==null?<Text Text style={styles.result}>...</Text>:<Text style={styles.result}>{bitolaExi}</Text>}
                 </View>
             </View>
         </View>
@@ -125,7 +202,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Disjuntor recomedado (A)</Text>
                 <View style={styles.outputSingle}>
-                    {bitolaRec>0&&bitolaRec<=1.5 ? <Text style={styles.result}>1.5</Text>:<Text style={styles.result}>Outro</Text>}   
+                    {disjutorExi==null?<Text Text style={styles.result}>...</Text>:<Text style={styles.result}>{disjutorExi}</Text>}
                 </View>
             </View>
         </View>
@@ -214,6 +291,12 @@ const styles = StyleSheet.create({
         backgroundColor:'#4C3B4D',
         color:'#FFEEDB',
         fontWeight:'bold',
+    },
+    legenda:{
+        color:'#FFEEDB',
+        fontWeight:'bold',
+        justifyContent: 'flex-end'
+
     }
 })
 

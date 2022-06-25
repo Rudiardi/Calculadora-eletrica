@@ -1,4 +1,4 @@
-package com.calculadoracabos.newarchitecture;
+package com.rudiardi.calculadora.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.calculadoracabos.BuildConfig;
-import com.calculadoracabos.newarchitecture.components.MainComponentsRegistry;
-import com.calculadoracabos.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.rudiardi.calculadora.BuildConfig;
+import com.rudiardi.calculadora.newarchitecture.components.MainComponentsRegistry;
+import com.rudiardi.calculadora.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

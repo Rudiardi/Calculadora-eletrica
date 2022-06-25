@@ -1,4 +1,4 @@
-package com.calculadoracabos;
+package com.rudiardi.calculadora;
 
 import android.os.Build;
 import android.os.Bundle;

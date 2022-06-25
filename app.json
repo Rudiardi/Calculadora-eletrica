@@ -3,20 +3,8 @@
     "name": "Calculadora-Cabos",
     "slug": "Calculadora-Cabos",
     "version": "1.1.0",
-    "icon":"./src/icon/icon.png",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "splash":{
-      "image":"./src/icon/splash.png",
-      "resizeMode":"contain",
-      "backgroundColor":"#ffeedbff"
-    },
+    "assetBundlePatterns": ["**/*"],
     "android": {
-      "adaptativeIcon":{
-        "foregroundImage":"./src/icon/adaptive-icon.png",
-        "backgroundColor":"#ffeedbff"
-      },
       "package": "com.rudiardi.calculadora"
     }
   }
