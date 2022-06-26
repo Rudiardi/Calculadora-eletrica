@@ -1,11 +1,10 @@
 {
   "expo": {
-    "name": "Calculadora-Cabos",
-    "slug": "Calculadora-Cabos",
-    "version": "1.1.0",
-    "assetBundlePatterns": ["**/*"],
-    "android": {
-      "package": "com.rudiardi.calculadora"
-    }
+    "name": "calculadora-cabos",
+    "slug": "calculadora-cabos",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
   }
 }

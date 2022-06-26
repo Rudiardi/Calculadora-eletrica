@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "CalculadoraCabos.app"
-               BlueprintName = "CalculadoraCabos"
-               ReferencedContainer = "container:CalculadoraCabos.xcodeproj">
+               BuildableName = "calculadoracabos.app"
+               BlueprintName = "calculadoracabos"
+               ReferencedContainer = "container:calculadoracabos.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "CalculadoraCabosTests.xctest"
-               BlueprintName = "CalculadoraCabosTests"
-               ReferencedContainer = "container:CalculadoraCabos.xcodeproj">
+               BuildableName = "calculadoracabosTests.xctest"
+               BlueprintName = "calculadoracabosTests"
+               ReferencedContainer = "container:calculadoracabos.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "CalculadoraCabos.app"
-            BlueprintName = "CalculadoraCabos"
-            ReferencedContainer = "container:CalculadoraCabos.xcodeproj">
+            BuildableName = "calculadoracabos.app"
+            BlueprintName = "calculadoracabos"
+            ReferencedContainer = "container:calculadoracabos.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "CalculadoraCabos.app"
-            BlueprintName = "CalculadoraCabos"
-            ReferencedContainer = "container:CalculadoraCabos.xcodeproj">
+            BuildableName = "calculadoracabos.app"
+            BlueprintName = "calculadoracabos"
+            ReferencedContainer = "container:calculadoracabos.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

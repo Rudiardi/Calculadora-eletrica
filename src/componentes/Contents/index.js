@@ -7,7 +7,6 @@ import {
  } from 'react-native';
 
 import DropDownPicker from 'react-native-dropdown-picker';
-import { Switch } from 'react-native-web';
 
 //import {Picker} from '@react-native-picker/picker';
 //react select
@@ -211,8 +210,6 @@ export default function Contents({bitola,disjutor}) {
     
 );
 }
-
-
 
 
 const styles = StyleSheet.create({
