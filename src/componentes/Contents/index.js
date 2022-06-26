@@ -29,6 +29,12 @@ export default function Contents({bitola,disjutor}) {
         {label: '4%', value: 0.04},
         {label: '5%', value: 0.05},
       ]);
+    const [open3, setOpen3] = useState(false);
+    const [value3, setValue3] = useState(220);
+    const [items3, setItems3] = useState([
+        {label: '127', value: 127},
+        {label: '220', value: 220},
+      ]);
 
     const [Potencia,setPotencia]=useState(null)
     const [Comprimento,setComprimento]=useState(null)
@@ -37,7 +43,7 @@ export default function Contents({bitola,disjutor}) {
     let tamanhoInput = 6;
 
     
-    let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*Tensao*Tensao));
+    let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*value3*value3));
     
     let bitolaExi = null;
     let disjutorExi = null;
@@ -140,6 +146,7 @@ export default function Contents({bitola,disjutor}) {
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Queda de Tensão (%)</Text>
                     <DropDownPicker 
+                        
                         textStyle={{fontSize: 20,color: '#FFEEDB',fontWeight:'bold'}}
                         dropDownContainerStyle={{backgroundColor: "#A53860"}}
                         style={styles.dropDown}
@@ -180,12 +187,16 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.subcontainer}>
                 <View style={styles.organizaTexto}>
                     <Text style={styles.titulos}>Tensão (V)</Text>
-                    <TextInput 
-                        style={styles.inputs} 
-                        keyboardType={'number-pad'}
-                        value={Tensao}
-                        maxLength={tamanhoInput}
-                        onChangeText={text=>setTensao(text)}/>
+                    <DropDownPicker 
+                        textStyle={{fontSize: 20,color: '#FFEEDB',fontWeight:'bold'}}
+                        dropDownContainerStyle={{backgroundColor: "#A53860"}}
+                        style={styles.dropDown}
+                        open={open3}
+                        value={value3}
+                        items={items3}
+                        setOpen={setOpen3}
+                        setValue={setValue3}
+                        setItems={setItems3}/>
                 </View>
             </View>
         </View>
@@ -233,6 +244,7 @@ const styles = StyleSheet.create({
     organizaTexto:{
         justifyContent:'space-around' ,
         alignItems:'center',
+        
     },
     inputs:{
         backgroundColor:'#4C3B4D',
@@ -266,6 +278,8 @@ const styles = StyleSheet.create({
         width:180,
         height:50,
         paddingLeft:60,
+        zIndex: -1
+    
     },
     result:{
         color:'#FFEEDB',
