@@ -29,24 +29,32 @@ export default function Contents({bitola,disjutor}) {
         {label: '4%', value: 0.04},
         {label: '5%', value: 0.05},
       ]);
-    const [open3, setOpen3] = useState(false);
+    const [open3, setOpen3] = useState(null);
     const [value3, setValue3] = useState(220);
     const [items3, setItems3] = useState([
         {label: '127', value: 127},
         {label: '220', value: 220},
       ]);
 
-    const [Potencia,setPotencia]=useState(null)
-    const [Comprimento,setComprimento]=useState(null)
-    const [Tensao,setTensao]=useState(null)
+    const [Potencia,setPotencia]=useState(0)
+    const [Comprimento,setComprimento]=useState(0)
+
 
     let tamanhoInput = 6;
 
+    let validador = null
     
     let bitolaRec = (2*valueMaterial)*((Potencia*Comprimento)/(value2*value3*value3));
     
     let bitolaExi = null;
     let disjutorExi = null;
+
+    if ((Potencia)>0&&(Comprimento)>0) {
+        validador='ok';
+    }else{
+        validador='erro';
+    }
+
 
     if (bitolaRec<=1.5) {
         bitolaExi=1.5
@@ -65,22 +73,27 @@ export default function Contents({bitola,disjutor}) {
     }
     else if (6<bitolaRec && bitolaRec<=10){
         bitolaExi=10;
-        disjutorExi=63;
+        disjutorExi=50;
     }
     else if (10<bitolaRec && bitolaRec<=16){
         bitolaExi=16;
+        disjutorExi=70;
     }
     else if (16<bitolaRec && bitolaRec<=25){
         bitolaExi=25;
+        disjutorExi=100;
     }
     else if (25<bitolaRec && bitolaRec<=35){
         bitolaExi=35;
+        disjutorExi=125;
     }
     else if (35<bitolaRec && bitolaRec<=50){
         bitolaExi=50;
+        disjutorExi=150;
     }
     else if (50<bitolaRec && bitolaRec<=70){
         bitolaExi=70;
+        disjutorExi=175;
     }
     else if (70<bitolaRec && bitolaRec<=95){
         bitolaExi=95;
@@ -204,8 +217,8 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Bitola Recomendada (mm²)</Text>
                 <View style={styles.outputSingle}>
-                    {bitolaExi==null?<Text></Text>:<Text style={styles.legenda}>EXATO:{bitolaRec.toFixed(1)}mm²</Text>}
-                    {bitolaExi==null?<Text Text style={styles.result}>...</Text>:<Text style={styles.result}>{bitolaExi}</Text>}
+                    {validador=='ok'?<Text style={styles.legenda}>EXATO:{bitolaRec.toFixed(1)}mm²</Text>:<Text></Text>}
+                    {validador=='ok'?<Text style={styles.result}>{bitolaExi}</Text>:<Text Text style={styles.result}>...</Text>}
                 </View>
             </View>
         </View>
@@ -213,7 +226,7 @@ export default function Contents({bitola,disjutor}) {
             <View style={styles.organizaTexto}>
                 <Text style={styles.titulos}>Disjuntor recomedado (A)</Text>
                 <View style={styles.outputSingle}>
-                    {disjutorExi==null?<Text Text style={styles.result}>...</Text>:<Text style={styles.result}>{disjutorExi}</Text>}
+                    {validador=='ok'?<Text style={styles.result}>{disjutorExi}</Text>:<Text Text style={styles.result}>...</Text>}
                 </View>
             </View>
         </View>
